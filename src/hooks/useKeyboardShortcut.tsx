@@ -47,6 +47,7 @@ export const useKeyboardShortcut = (keybinds: any) => {
             document.removeEventListener('keydown', onKeyDown, true);
             document.removeEventListener('keyup', onKeyUp, true)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 };

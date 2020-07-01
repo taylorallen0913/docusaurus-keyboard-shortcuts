@@ -28,6 +28,7 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
         delete keybinds.modal;
         console.log(keybinds)
         splitInput();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const splitInput = () => {

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useState, useEffect } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { useKeyboardShortcut } from '../hooks/useKeyboardShortcut';
 import Modal from '../components/Modal'
 
@@ -24,6 +24,7 @@ export const ShortcutContextProvider = ({ children }: any) => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const keyboardShortcut = useKeyboardShortcut(keybinds);
 
   return (
