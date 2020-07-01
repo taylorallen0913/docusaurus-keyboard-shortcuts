@@ -12,19 +12,17 @@ export const ShortcutContextProvider = ({ children }: any) => {
 
   const keybinds: any = {
     modal: {
+      hidden: true,
       keyCombo: [['Shift ?'].toString()],
       action: () => setIsModalVisible(true)
     },
     alert: {
+      hidden: false,
+      name: "Alert user",
       keyCombo: [['Shift M'].toString()],
       action: () => alert('Alert!')
     }
   };
-
-  // keybinds[['Shift ?'].toString()] = () => setIsModalVisible(true)
-  // keybinds[['Shift M'].toString()] = () => alert('Alert!')
-
-  console.log(keybinds)
 
   const keyboardShortcut = useKeyboardShortcut(keybinds);
 
