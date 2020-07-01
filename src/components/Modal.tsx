@@ -8,7 +8,7 @@ const KeybindDisplay = ({ name, keyCombos }: any) => {
             <h1 className="shortcuts-title">{name}</h1>
             {
                 keyCombos.map((combo: any) => (
-                    <p className="shortcuts-key-combo">
+                    <p className="shortcuts-key-combo" key={combo.toString()}>
                         {parseKeyCombo(combo)}
                     </p>
                 ))
@@ -24,7 +24,6 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
 
     useEffect(() => {
         delete keybinds.modal;
-        console.log(keybinds)
         splitInput();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
