@@ -9,7 +9,7 @@ import { checkKeybinds } from '../utils/keybinds'
  */
 
 // Created a reducer over state because reducer doesn't rerender component on changes
-const keyPressListReducer = (state: Set<string>, action: IKeyPressAction): any => {
+function keyPressListReducer(state: Set<string>, action: IKeyPressAction): any {
     switch (action.type) {
         case 'add':
             return state.add(action.key!);

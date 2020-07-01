@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+import styles from './styles.module.css';
+
 const parseKeyCombo = (keyCombo: string) => keyCombo.split(' ').join(" + ");
 
-const KeybindDisplay = ({ name, keyCombos }: any) => {
+function KeybindDisplay({ name, keyCombos }: any) {
     return (
         <div className="shortcuts-content-container">
             <h1 className="shortcuts-title">{name}</h1>
@@ -18,7 +20,7 @@ const KeybindDisplay = ({ name, keyCombos }: any) => {
     );
 }
 
-const Modal = ({ setIsModalVisible, keybinds }: any) => {
+function Modal({ setIsModalVisible, keybinds }: any): JSX.Element {
     const [colOneList, setColOneList] = useState<any>();
     const [colTwoList, setColTwoList] = useState<any>();
 
@@ -61,6 +63,18 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
                     <div className="card__header shortcuts-header-container">
                         <h1 className="shortcuts-header">Docusaurus Keyboard Shortcuts</h1>
                     </div>
+                    <div>
+                        <ul className="pills pills--block">
+                            <li className="pills__item pills__item--active shortcuts-pills">General</li>
+                            <li className="pills__item shortcuts-pills">Beta</li>
+                            <li className="pills__item shortcuts-pills">Gamma</li>
+                            <li className="pills__item shortcuts-pills">Zeta</li>
+                            <li className="pills__item shortcuts-pills">Zeta</li>
+                            <li className="pills__item shortcuts-pills">Zeta</li>
+                            <li className="pills__item shortcuts-pills">Zeta</li>
+                            <li className="pills__item shortcuts-pills">Zeta</li>
+                        </ul>
+                    </div>
                     <div className="card__body row">
                         <div className="col shortcuts-container">
                             {
@@ -87,37 +101,7 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
                             }
                         </div>
                     </div>
-                    <div className="card__footer shortcuts-footer">
-                        <ul className="pagination">
-                            <li className="pagination__item disabled">
-                                <a className="pagination__link" href="#url">
-                                    «
-                                </a>
-                            </li>
-                            <li className="pagination__item pagination__item--active">
-                                <a className="pagination__link" href="#url">
-                                    1
-                                    </a>
-                            </li>
-                            <li className="pagination__item">
-                                <a className="pagination__link" href="#url">
-                                    2
-                                </a>
-                            </li>
-                            <li className="pagination__item">
-                                <a className="pagination__link" href="#url">
-                                    3
-                                </a>
-                            </li>
-                            <li className="pagination__item">
-                                <span>...</span>
-                            </li>
-                            <li className="pagination__item">
-                                <a className="pagination__link" href="#url">
-                                    »
-                                </a>
-                            </li>
-                        </ul>
+                    <div className="card__footer">
                         <div>
                             <button
                                 className="button button--secondary button--block shortcuts-dismiss-button"

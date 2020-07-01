@@ -7,7 +7,7 @@ export const ShortcutContext = createContext<any>(null);
 
 const modalReducer = (state: any, value: any) => value;
 
-export const ShortcutContextProvider = ({ children }: any) => {
+export function ShortcutContextProvider({ children }: any) {
   const [isModalVisible, setIsModalVisible] = useReducer(modalReducer, false);
 
   const keybinds: any = {
