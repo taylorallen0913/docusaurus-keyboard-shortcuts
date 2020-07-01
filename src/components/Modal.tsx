@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const parseKeyCombo = (keyCombo: string) => {
-    return keyCombo.split(' ').join(" + ")
-}
+const parseKeyCombo = (keyCombo: string) => keyCombo.split(' ').join(" + ");
 
 const KeybindDisplay = ({ name, keyCombos }: any) => {
     return (
@@ -31,16 +29,27 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // Removed keybinds with hidden property
+    const filterKeybinds = (): object[] => {
+        let filteredKeybinds: object[] = [];
+        Object.keys(keybinds).forEach((keybindName: any) => {
+            if (keybinds[keybindName].hidden === false) {
+                filteredKeybinds[keybindName] = keybinds[keybindName];
+            }
+        })
+
+        return filteredKeybinds;
+    }
+
     const splitInput = () => {
+        let filteredKeybinds: object[] = filterKeybinds();
         let colOneList: object[] = [];
         let colTwoList: object[] = [];
         let colThreeList: object[] = [];
-        Object.values(keybinds).forEach((keybind: any, i) => {
-            if (keybind.hidden === false) {
-                if (i % 3 === 0) colOneList.push(keybind);
-                else if (i % 3 === 1) colTwoList.push(keybind);
-                else colThreeList.push(keybind)
-            }
+        Object.values(filteredKeybinds).forEach((keybind: any, i) => {
+            if (i % 3 === 0) colOneList.push(keybind);
+            else if (i % 3 === 1) colTwoList.push(keybind);
+            else colThreeList.push(keybind)
         })
         setColOneList(colOneList);
         setColTwoList(colTwoList);
