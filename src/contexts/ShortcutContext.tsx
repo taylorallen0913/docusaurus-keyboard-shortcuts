@@ -16,6 +16,11 @@ export const ShortcutContextProvider = ({ children }: any) => {
       keyCombo: [['Shift ?'].toString()],
       action: () => setIsModalVisible(true)
     },
+    closeModal: {
+      hidden: true,
+      keyCombo: ['Escape'],
+      action: () => setIsModalVisible(false)
+    },
     alert: {
       hidden: false,
       name: "Alert user",
