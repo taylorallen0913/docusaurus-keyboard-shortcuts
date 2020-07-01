@@ -4,8 +4,9 @@ const parseKeyCombo = (keyCombo: string) => keyCombo.split(' ').join(" + ");
 
 const KeybindDisplay = ({ name, keyCombos }: any) => {
     return (
-        <div>
+        <div className="shortcuts-content-container">
             <h1 className="shortcuts-title">{name}</h1>
+            <div className="shortcuts-spacing" />
             {
                 keyCombos.map((combo: any) => (
                     <p className="shortcuts-key-combo" key={combo.toString()}>

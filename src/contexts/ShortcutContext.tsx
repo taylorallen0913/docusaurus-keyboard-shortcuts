@@ -26,6 +26,12 @@ export const ShortcutContextProvider = ({ children }: any) => {
       name: "Alert user",
       keyCombo: [['Shift M'].toString()],
       action: () => alert('Alert!')
+    },
+    devtools: {
+      hidden: false,
+      name: "Open devtools in browser",
+      keyCombo: [['Shift T'].toString()],
+      action: () => alert('Devtools!')
     }
   };
 
