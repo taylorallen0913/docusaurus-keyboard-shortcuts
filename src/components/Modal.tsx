@@ -21,7 +21,6 @@ const KeybindDisplay = ({ name, keyCombos }: any) => {
 const Modal = ({ setIsModalVisible, keybinds }: any) => {
     const [colOneList, setColOneList] = useState<any>();
     const [colTwoList, setColTwoList] = useState<any>();
-    const [colThreeList, setColThreeList] = useState<any>();
 
     useEffect(() => {
         delete keybinds.modal;
@@ -45,15 +44,12 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
         let filteredKeybinds: object[] = filterKeybinds();
         let colOneList: object[] = [];
         let colTwoList: object[] = [];
-        let colThreeList: object[] = [];
         Object.values(filteredKeybinds).forEach((keybind: any, i) => {
-            if (i % 3 === 0) colOneList.push(keybind);
-            else if (i % 3 === 1) colTwoList.push(keybind);
-            else colThreeList.push(keybind)
+            if (i % 2 === 0) colOneList.push(keybind);
+            else if (i % 2 === 1) colTwoList.push(keybind);
         })
         setColOneList(colOneList);
         setColTwoList(colTwoList);
-        setColThreeList(colThreeList);
     }
 
 
@@ -83,18 +79,6 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
                             {
                                 colTwoList &&
                                 colTwoList.map((keybind: any) => (
-                                    <KeybindDisplay
-                                        key={keybind.name.toString()}
-                                        name={keybind.name}
-                                        keyCombos={keybind.keyCombo}
-                                    />
-                                ))
-                            }
-                        </div>
-                        <div className="col shortcuts-container">
-                            {
-                                colThreeList &&
-                                colThreeList.map((keybind: any) => (
                                     <KeybindDisplay
                                         key={keybind.name.toString()}
                                         name={keybind.name}
