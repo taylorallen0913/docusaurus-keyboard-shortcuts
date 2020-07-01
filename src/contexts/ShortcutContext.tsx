@@ -27,11 +27,12 @@ export const ShortcutContextProvider = ({ children }: any) => {
   const keyboardShortcut = useKeyboardShortcut(keybinds);
 
   return (
-    <ShortcutContext.Provider value={{ isModalVisible, setIsModalVisible }}>
+    <ShortcutContext.Provider value={{ isModalVisible, setIsModalVisible }
+    }>
       {
         isModalVisible && <Modal setIsModalVisible={setIsModalVisible} keybinds={keybinds} />
       }
       {children}
-    </ShortcutContext.Provider>
+    </ShortcutContext.Provider >
   );
 };

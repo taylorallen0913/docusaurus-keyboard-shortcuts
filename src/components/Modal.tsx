@@ -8,19 +8,15 @@ const parseKeyCombo = (keyCombo: string) => {
 
 const KeybindDisplay = ({ name, keyCombos }: any) => {
     return (
-        <div className="row row--no-gutters">
-            <div className="col col--6">
-                <h1 className="shortcuts-title">{name}</h1>
-            </div>
-            <div className="col">
-                {
-                    keyCombos.map((combo: any) => (
-                        <p className="shortcuts-key-combo">
-                            {parseKeyCombo(combo)}
-                        </p>
-                    ))
-                }
-            </div>
+        <div>
+            <h1 className="shortcuts-title">{name}</h1>
+            {
+                keyCombos.map((combo: any) => (
+                    <p className="shortcuts-key-combo">
+                        {parseKeyCombo(combo)}
+                    </p>
+                ))
+            }
         </div>
     );
 }
@@ -42,7 +38,6 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
         let colThreeList: object[] = [];
         Object.values(keybinds).forEach((keybind: any, i) => {
             if (keybind.hidden === false) {
-                console.log(i)
                 if (i % 3 === 0) colOneList.push(keybind);
                 else if (i % 3 === 1) colTwoList.push(keybind);
                 else colThreeList.push(keybind)
@@ -50,6 +45,7 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
         })
         setColOneList(colOneList);
         setColTwoList(colTwoList);
+        setColThreeList(colThreeList);
     }
 
 
