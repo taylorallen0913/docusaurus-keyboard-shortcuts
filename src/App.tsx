@@ -6,7 +6,6 @@ const App = () => {
 
   return (
     <ShortcutContextProvider>
-      <h1>Hello world</h1>
     </ShortcutContextProvider>
   )
 };
