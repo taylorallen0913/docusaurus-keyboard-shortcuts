@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
-import { ShortcutContext, ShortcutContextProvider } from './contexts/ShortcutContext';
+import React from 'react';
+import { ShortcutContextProvider } from './contexts/ShortcutContext';
+
+import "./App.css"
 
 const App = () => {
-  const shortcut = useContext(ShortcutContext);
 
   return (
     <ShortcutContextProvider>
+      <h1 className="header">Press ? to get started!</h1>
     </ShortcutContextProvider>
   )
 };

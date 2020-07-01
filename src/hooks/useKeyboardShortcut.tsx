@@ -1,20 +1,21 @@
 import { useEffect, useReducer } from 'react';
 import { IKeyInput, IKeyPressAction } from '../interfaces'
+import { checkKeybinds } from '../utils/keybinds'
 
-export const useKeyboardShortcut = () => {
-
-    // Created a reducer over state because reducer doesn't rerender component on changes
-    const keyPressListReducer = (state: Set<string>, action: IKeyPressAction): any => {
-        switch (action.type) {
-            case 'add':
-                return state.add(action.key!);
-            case 'remove':
-                state.delete(action.key!);
-                return state;
-            default:
-                return state;
-        }
+// Created a reducer over state because reducer doesn't rerender component on changes
+const keyPressListReducer = (state: Set<string>, action: IKeyPressAction): any => {
+    switch (action.type) {
+        case 'add':
+            return state.add(action.key!);
+        case 'remove':
+            state.delete(action.key!);
+            return state;
+        default:
+            return state;
     }
+}
+
+export const useKeyboardShortcut = (keybinds: any) => {
 
     const [keyPressList, setKeyPressList] = useReducer(keyPressListReducer, new Set<string>());
 
@@ -27,6 +28,9 @@ export const useKeyboardShortcut = () => {
         if (isKeyInList(key)) return;
 
         setKeyPressList({ type: 'add', key });
+
+        // Checks if a keybind is pressed
+        checkKeybinds(keyPressList, keybinds);
     }
 
     // Triggers every time a key is let go

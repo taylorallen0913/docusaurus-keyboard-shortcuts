@@ -5,4 +5,5 @@ export interface IKeyInput {
 export interface IKeyPressAction {
   type: string;
   key?: string;
+  keybinds?: object;
 }
