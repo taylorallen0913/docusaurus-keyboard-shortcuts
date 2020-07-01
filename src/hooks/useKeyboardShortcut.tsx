@@ -2,12 +2,17 @@ import { useEffect, useReducer } from 'react';
 import { IKeyInput, IKeyPressAction } from '../interfaces'
 import { checkKeybinds } from '../utils/keybinds'
 
+/**
+ * TODO:
+ * Fix bug with keyboard shortcuts where if you 
+ * leave page shortcuts dont work until you refresh
+ */
+
 // Created a reducer over state because reducer doesn't rerender component on changes
 const keyPressListReducer = (state: Set<string>, action: IKeyPressAction): any => {
     switch (action.type) {
         case 'add':
             return state.add(action.key!);
-            console.log(state)
         case 'remove':
             state.delete(action.key!);
             return state;
@@ -30,7 +35,6 @@ export const useKeyboardShortcut = (keybinds: any) => {
     // Triggers every time a key is pressed
     const onKeyDown = ({ key }: IKeyInput) => {
         if (isKeyInList(key)) return;
-
         setKeyPressList({ type: 'add', key });
 
         // Checks if a keybind is pressed
@@ -41,6 +45,10 @@ export const useKeyboardShortcut = (keybinds: any) => {
     const onKeyUp = ({ key }: IKeyInput) => {
         setKeyPressList({ type: 'remove', key });
     };
+
+    useEffect(() => {
+        console.log(keyPressList)
+    }, [keyPressList])
 
     // Adds keyboard event listeners and cleans them up
     useEffect(() => {

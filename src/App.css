@@ -5,7 +5,7 @@
   margin: 2% 0 0 0;
 }
 
-.card-modal-container {
+.shortcuts-modal-container {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,7 +13,7 @@
   right: 0;
 }
 
-.card-modal-background {
+.shortcuts-modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -23,7 +23,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.card-modal-content {
+.shortcuts-modal-content {
   position: relative;
   top: 50%;
   left: 50%;
@@ -48,6 +48,11 @@
 .shortcuts-header {
   font-size: 2em;
   text-align: center;
+  padding: 0 0 0.8em 0;
+}
+
+.shortcuts-header-container {
+  background-color: rgba(220, 220, 220, 0.3);
 }
 
 .shortcuts-container {
@@ -62,7 +67,7 @@
 .shortcuts-key-combo {
   background-color: rgba(220, 220, 220, 0.5);
   width: fit-content;
-  margin-top: 2.5%;
+  margin-top: 2%;
   font-size: 0.8em;
   padding: 0.5em;
 }
@@ -74,4 +79,15 @@
 .shortcuts-content-container {
   display: flex;
   align-items: center;
+}
+
+.shortcuts-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shortcuts-dismiss-button {
+  width: 500%;
 }

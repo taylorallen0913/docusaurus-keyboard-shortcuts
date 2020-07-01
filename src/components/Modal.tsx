@@ -54,13 +54,12 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
 
 
     return (
-        <div className="card-modal-container">
-            <div className="card-modal-background" />
-            <div className="card-modal-content">
+        <div className="shortcuts-modal-container">
+            <div className="shortcuts-modal-background" />
+            <div className="shortcuts-modal-content">
                 <div className="card">
-                    <div className="card__header">
+                    <div className="card__header shortcuts-header-container">
                         <h1 className="shortcuts-header">Docusaurus Keyboard Shortcuts</h1>
-
                     </div>
                     <div className="card__body row">
                         <div className="col shortcuts-container">
@@ -88,12 +87,44 @@ const Modal = ({ setIsModalVisible, keybinds }: any) => {
                             }
                         </div>
                     </div>
-                    <div className="card__footer">
-                        <button
-                            className="button button--secondary button--block"
-                            onClick={() => setIsModalVisible(false)}>
-                            Dismiss
+                    <div className="card__footer shortcuts-footer">
+                        <ul className="pagination">
+                            <li className="pagination__item disabled">
+                                <a className="pagination__link" href="#url">
+                                    «
+                                </a>
+                            </li>
+                            <li className="pagination__item pagination__item--active">
+                                <a className="pagination__link" href="#url">
+                                    1
+                                    </a>
+                            </li>
+                            <li className="pagination__item">
+                                <a className="pagination__link" href="#url">
+                                    2
+                                </a>
+                            </li>
+                            <li className="pagination__item">
+                                <a className="pagination__link" href="#url">
+                                    3
+                                </a>
+                            </li>
+                            <li className="pagination__item">
+                                <span>...</span>
+                            </li>
+                            <li className="pagination__item">
+                                <a className="pagination__link" href="#url">
+                                    »
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <button
+                                className="button button--secondary button--block shortcuts-dismiss-button"
+                                onClick={() => setIsModalVisible(false)}>
+                                Dismiss
                         </button>
+                        </div>
                     </div>
                 </div>
             </div>
