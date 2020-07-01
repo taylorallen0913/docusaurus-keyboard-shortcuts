@@ -1,0 +1,100 @@
+.contentContainer {
+  display: flex;
+  align-items: center;
+}
+
+.shortcutsModalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.shortcutsModalBackground {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shortcutsModalContent {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70%;
+  width: 60%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.shortcutsHeader {
+  font-size: 2em;
+  text-align: center;
+  padding: 0 0 0.8em 0;
+}
+
+.shortcutsHeaderContainer {
+  /* background-color: rgba(220, 220, 220, 0.3); */
+}
+
+.shortcutsModalBody {
+  padding: 0 !important;
+  background-color: rgba(220, 220, 220, 0.3);
+}
+
+.shortcutsContainer {
+  padding: 1em 1em 1em 3em !important;
+}
+
+.shortcutsTitle {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.shortcutsKeyCombo {
+  background-color: rgba(220, 220, 220, 0.5);
+  width: fit-content;
+  margin-top: 2%;
+  font-size: 0.8em;
+  padding: 0.5em;
+}
+
+.shortcutsSpacing {
+  margin: 3%;
+}
+
+.shortcutsBodyContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: var(--ifm-pills-color-background-active);
+}
+
+.shortcutsFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shortcutsPills {
+  margin-bottom: 0 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+.shortcutsPillItem {
+  font-weight: 500;
+  height: 200% !important;
+  border-radius: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
