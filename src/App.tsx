@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { ShortcutContext } from './contexts/ShortcutContext';
-import { useKeyboardShortcut } from './hooks/useKeyboardShortcut';
+import { ShortcutContext, ShortcutContextProvider } from './contexts/ShortcutContext';
 
 const App = () => {
-  const keyboardShortcut = useKeyboardShortcut();
-  // const shortcut = useContext(ShortcutContext)
+  const shortcut = useContext(ShortcutContext);
+
   return (
-    <h1>Hello world</h1>
+    <ShortcutContextProvider>
+      <h1>Hello world</h1>
+    </ShortcutContextProvider>
   )
 };
 
