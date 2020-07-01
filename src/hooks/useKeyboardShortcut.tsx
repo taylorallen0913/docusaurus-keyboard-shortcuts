@@ -7,8 +7,12 @@ const keyPressListReducer = (state: Set<string>, action: IKeyPressAction): any =
     switch (action.type) {
         case 'add':
             return state.add(action.key!);
+            console.log(state)
         case 'remove':
             state.delete(action.key!);
+            return state;
+        case 'clear':
+            state.clear();
             return state;
         default:
             return state;
@@ -30,7 +34,7 @@ export const useKeyboardShortcut = (keybinds: any) => {
         setKeyPressList({ type: 'add', key });
 
         // Checks if a keybind is pressed
-        checkKeybinds(keyPressList, keybinds);
+        checkKeybinds(keyPressList, keybinds, setKeyPressList);
     }
 
     // Triggers every time a key is let go
@@ -44,6 +48,7 @@ export const useKeyboardShortcut = (keybinds: any) => {
         document.addEventListener('keyup', onKeyUp, true)
 
         return () => {
+            setKeyPressList({ type: 'clear' })
             document.removeEventListener('keydown', onKeyDown, true);
             document.removeEventListener('keyup', onKeyUp, true)
         }
