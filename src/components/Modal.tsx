@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import './Modal.css'
-
 const parseKeyCombo = (keyCombo: string) => {
     return keyCombo.split(' ').join(" + ")
 }
