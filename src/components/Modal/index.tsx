@@ -4,24 +4,6 @@ import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
-const parseKeyCombo = (keyCombo: string) => keyCombo.split(' ').join(" + ");
-
-function KeybindDisplay({ name, keyCombos }: any) {
-    console.log(keyCombos)
-    return (
-        <div className={styles.contentContainer}>
-            <h1 className={styles.shortcutsTitle}>{name}</h1>
-            <div className={styles.shortcutsSpacing} />
-            {/* {
-                keyCombos.map((combo: any) => (
-                    <p className={styles.shortcutsKeyCombo} key={combo.toString()}>
-                        {parseKeyCombo(combo)}
-                    </p>
-                ))
-            } */}
-        </div>
-    );
-}
 
 function Modal({ setIsModalVisible, keybinds }: any): JSX.Element {
     const [keybindData, setKeybindData] = useState<any>();
@@ -32,7 +14,6 @@ function Modal({ setIsModalVisible, keybinds }: any): JSX.Element {
         const filteredKeybindData = filterKeybinds();
         setKeybindData(filteredKeybindData);
         renderModalTabs(filteredKeybindData);
-        console.log(filteredKeybindData)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -52,7 +33,6 @@ function Modal({ setIsModalVisible, keybinds }: any): JSX.Element {
         Object.values(filteredKeybindData).forEach((keybind: any, i: number) => {
             modalTabs.push(
                 <li onClick={() => {
-                    console.log(i);
                     setActiveTab(i);
                 }} className={clsx('pills__item', styles.shortcutsPillItem, { 'pills__item--active': i === activeTab })} key={i}>
                     {keybind.name}

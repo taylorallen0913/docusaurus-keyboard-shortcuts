@@ -1,32 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
+const parseKeyCombo = (keyCombo: string) => keyCombo.split(' ').join(" + ");
+
+function KeybindDisplay({ name, keyCombos }: any) {
+    return (
+        <div className={styles.shortcutsContentContainer}>
+            <h1 className={styles.shortcutsTitle}>{name}</h1>
+            <div className={styles.shortcutsSpacing} />
+            {
+                keyCombos.map((combo: any) => (
+                    <p className={styles.shortcutsKeyCombo} key={combo.toString()}>
+                        {parseKeyCombo(combo)}
+                    </p>
+                ))
+            }
+        </div>
+    );
+}
+
 function ModalTabBody({ keybindData }: any) {
 
-    console.log(keybindData);
 
     const [colOneList, setColOneList] = useState<any>();
     const [colTwoList, setColTwoList] = useState<any>();
 
+    useEffect(() => {
+        splitInput();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [keybindData])
+
     function splitInput() {
-        // let filteredKeybinds: object[] = filterKeybinds();
-        // let colOneList: object[] = [];
-        // let colTwoList: object[] = [];
-        // Object.values(filteredKeybinds).forEach((keybind: any, i) => {
-        //     if (i % 2 === 0) colOneList.push(keybind);
-        //     else if (i % 2 === 1) colTwoList.push(keybind);
-        // })
-        // setColOneList(colOneList);
-        // setColTwoList(colTwoList);
-        // console.log(colOneList);
-        // console.log(colTwoList);
+        let colOneList: object[] = [];
+        let colTwoList: object[] = [];
+        Object.values(keybindData.contents).forEach((keybind: any, i: number) => {
+            if (i % 2 === 0) colOneList.push(keybind);
+            else if (i % 2 === 1) colTwoList.push(keybind);
+        })
+        setColOneList(colOneList);
+        setColTwoList(colTwoList);
     }
 
     return (
         <div className="card__body row">
-            {/* <div className={clsx('col', styles.shortcutsContainer)}>
+            <div className={clsx('col', styles.shortcutsContainer)}>
                 {
                     colOneList &&
                     colOneList.map((keybind: any) => (
@@ -49,7 +68,7 @@ function ModalTabBody({ keybindData }: any) {
                         />
                     ))
                 }
-            </div> */}
+            </div>
         </div>
     )
 }

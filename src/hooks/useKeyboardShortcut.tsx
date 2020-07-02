@@ -40,11 +40,6 @@ export const useKeyboardShortcut = (keybinds: any) => {
         setKeyPressList({ type: 'remove', key });
     };
 
-    // Debugging
-    useEffect(() => {
-        console.log(keyPressList)
-    }, [keyPressList])
-
     // Adds keyboard event listeners and cleans them up
     useEffect(() => {
         document.addEventListener('keydown', onKeyDown, true);
